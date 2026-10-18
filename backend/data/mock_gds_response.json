@@ -4,12 +4,12 @@
     {
       "trip_id": "TRP-128475",
       "operator": "Infinity Infoway Pvt. Ltd.",
-      "bus_type": "2+1 NON AC Seater",
+      "bus_type": "2+1 AC Seater",
       "is_ac": true,
       "from_city_name": "Bangalore",
       "to_city_name": "Mumbai",
       "route_name": "Bangalore To Mumbai",
-      "bus_type_name": "2+1 NON AC Seater",
+      "bus_type_name": "2+1 AC Seater",
       "bus_seat_type": "Seater",
       "amenities": [
         "Reading Light",
