@@ -95,11 +95,16 @@ export default function App() {
         {shown.map(b => (<article className="card bus-card" key={b.trip_id}>
           <div><h3>{b.operator}</h3><p>{b.bus_type}</p>
             <span className="badge">{b.is_ac ? "AC" : "Non-AC"}</span><span className="badge">{b.bus_seat_type}</span></div>
-          <div><b>{b.schedule.departure_time}</b> {b.from_city_name}<br /><small>{duration(b.schedule.duration_minutes)}</small><br />
-            <b>{b.schedule.arrival_time}</b> {b.to_city_name}{b.schedule.estimated_arrival_date !== b.schedule.departure_date && <small> ({b.schedule.estimated_arrival_date})</small>}</div>
+          <div className="bus-schedule">
+            <div className="bus-timeline">
+              <span><b>{b.schedule.departure_time}</b> {b.from_city_name}</span>
+              <small>{duration(b.schedule.duration_minutes)}</small>
+              <span><b>{b.schedule.arrival_time}</b> {b.to_city_name}{b.schedule.estimated_arrival_date !== b.schedule.departure_date && <small> ({b.schedule.estimated_arrival_date})</small>}</span>
+            </div>
+            <StopSummary bus={b} />
+          </div>
           <div><p className="fare">{inr(b.pricing.total_fare)}</p><p>{b.availability.seats_available} seats left</p>
             <button onClick={() => setSelected(b)}>View Details</button></div>
-          <StopSummary bus={b} />
         </article>))}</>)}
     </main>
     {selected && <Details bus={selected} onClose={() => setSelected(null)} />}
