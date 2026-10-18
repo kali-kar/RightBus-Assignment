@@ -104,9 +104,10 @@ footer { padding: 24px; color: var(--muted); font-size: .85rem; text-align: cent
   header img { height: 40px; }
   .hero { padding: 28px 16px; }
   .hero h1 { font-size: clamp(1.55rem, 7vw, 2rem); }
-  form { gap: 10px; padding: 12px; }
+  form { gap: 6px 10px; padding: 12px; }
   label { flex-basis: 100%; }
   form > button { flex: 1 1 auto; }
+  form > button.swap-cities { flex: 0 0 36px; min-height: 32px; height: 32px; margin: -2px auto; padding: 4px; }
   main { padding: 16px; }
   .card { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 14px; }
   .bus-card > div:first-child, .bus-card > div:last-of-type { text-align: center; }
