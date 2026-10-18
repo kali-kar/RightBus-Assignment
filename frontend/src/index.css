@@ -118,6 +118,9 @@ footer { padding: 24px; color: var(--muted); font-size: .85rem; text-align: cent
   .bus-card > div:first-child { grid-column: 1; grid-row: 1; text-align: left; }
   .bus-card > .bus-schedule { grid-column: 1 / -1; grid-row: 2; }
   .bus-card > div:last-of-type { grid-column: 2; grid-row: 1; text-align: right; }
+  .bus-card > div:first-child > p { font-size: .85rem; }
+  .bus-card .fare { font-size: 1.25rem; }
+  .bus-card .stop-summary { display: none; }
   .bus-card .amenities { margin-top: 2px; }
   .filters > * { flex: 1 1 100%; }
   .filters select { width: 100%; }
