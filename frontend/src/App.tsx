@@ -102,7 +102,9 @@ export default function App() {
         {shown.map(b => (<article className="card bus-card" key={b.trip_id}>
           <div><h3>{b.operator}</h3><p>{b.bus_type}</p>
             <span className="badge">{b.is_ac ? "AC" : "Non-AC"}</span><span className="badge">{b.bus_seat_type}</span>
-            {otherAmenities(b.amenities).length > 0 && <p className="amenities">{otherAmenities(b.amenities).join(" · ")}</p>}
+            {otherAmenities(b.amenities).length > 0 && <div className="amenities">
+              {otherAmenities(b.amenities).map((amenity, index) => <span className="badge" key={`${amenity}-${index}`}>{amenity}</span>)}
+            </div>}
           </div>
           <div className="bus-schedule">
             <div className="bus-timeline">
