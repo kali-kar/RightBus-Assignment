@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.log
