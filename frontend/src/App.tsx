@@ -76,7 +76,7 @@ export default function App() {
     <section className="hero"><h1>Your Journey Starts Here</h1><p>Find your next bus journey with a simple, seamless search.</p>
       <form onSubmit={submit} noValidate>
         <label>From<input list="cities" value={source} onChange={e => setSource(e.target.value)} /></label>
-        <button type="button" aria-label="Swap cities" onClick={() => { setSource(destination); setDestination(source); }}><ArrowLeftRight /></button>
+        <button className="swap-cities" type="button" aria-label="Swap cities" onClick={() => { setSource(destination); setDestination(source); }}><ArrowLeftRight /></button>
         <label>To<input list="cities" value={destination} onChange={e => setDestination(e.target.value)} /></label>
         <label>Journey date<input type="date" value={date} onChange={e => setDate(e.target.value)} /></label>
         <button className="primary" disabled={state.kind === "loading"}><Search /> {state.kind === "loading" ? "Searching…" : "Search Buses"}</button>
