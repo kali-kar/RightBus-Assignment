@@ -68,7 +68,7 @@ main > h2 { text-align: center; overflow-wrap: anywhere; }
 .bus-card > div:last-of-type { text-align: right; }
 .bus-card > div:last-of-type button { margin-top: 6px; }
 .bus-schedule { min-width: 0; text-align: center; }
-.bus-timeline { display: flex; align-items: baseline; justify-content: center; gap: 12px; white-space: nowrap; }
+.bus-timeline { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
 .bus-timeline > small { flex: 0 0 auto; }
 .stop-summary {
   display: flex; align-items: center; justify-content: center; gap: 6px 10px;
@@ -108,7 +108,6 @@ footer { padding: 24px; color: var(--muted); font-size: .85rem; text-align: cent
   main { padding: 16px; }
   .card { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 14px; }
   .bus-card > div:first-child, .bus-card > div:last-of-type { text-align: center; }
-  .bus-timeline { flex-wrap: wrap; white-space: normal; }
   .filters > * { flex: 1 1 100%; }
   .filters select { width: 100%; }
   .demo { font-size: .75rem; }
