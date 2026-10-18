@@ -80,7 +80,13 @@ export default function App() {
     </section>
     <main>
       {state.kind === "idle" && <p className="center"><BusIcon /> Enter a route and date to see buses.</p>}
-      {state.kind === "loading" && <div aria-busy="true">{[1, 2, 3].map(i => <div key={i} className="card skeleton" />)}</div>}
+      {state.kind === "loading" && <section className="search-loader" role="status" aria-live="polite" aria-busy="true">
+        <img className="loader-logo" src="/logo.png" alt="RightBus" />
+        <p className="loader-title">Finding your next ride</p>
+        <p className="loader-route">{source} <span aria-hidden="true">→</span> {destination}</p>
+        <div className="loader-track" aria-hidden="true"><span className="loader-bus"><BusIcon size={22} /></span></div>
+        <span className="sr-only">Searching for available buses</span>
+      </section>}
       {state.kind === "error" && <div role="alert" className="center"><p>{state.msg}</p><button onClick={() => submit()}>Retry</button></div>}
       {state.kind === "done" && state.buses.length === 0 && <div className="center"><h3>No buses found</h3><p>Check the route or try another journey date.</p></div>}
       {state.kind === "done" && state.buses.length > 0 && (<>
