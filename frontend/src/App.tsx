@@ -7,6 +7,13 @@ type State = { kind: "idle" } | { kind: "loading" } | { kind: "error"; msg: stri
 const CITIES = ["Bangalore", "Mumbai", "Delhi", "Chennai", "Hyderabad", "Pune"];
 const noFilters: Filters = { ac: "all", seat: "all", sort: "none" };
 
+function otherAmenities(amenities: string[]) {
+  return amenities.filter(amenity => {
+    const normalized = amenity.replace(/[^a-z]/gi, "").toLowerCase();
+    return normalized !== "ac" && normalized !== "nonac";
+  });
+}
+
 function Points({ title, pts }: { title: string; pts: Point[] }) {
   return (<section><h4>{title}</h4><ul>{pts.map((p, i) => (
     <li key={i}><strong>{p.time}</strong> — {p.name}{p.is_nearest && <em className="tag">Nearest</em>}
@@ -94,7 +101,9 @@ export default function App() {
         {shown.length === 0 && <p className="center">No buses match these filters.</p>}
         {shown.map(b => (<article className="card bus-card" key={b.trip_id}>
           <div><h3>{b.operator}</h3><p>{b.bus_type}</p>
-            <span className="badge">{b.is_ac ? "AC" : "Non-AC"}</span><span className="badge">{b.bus_seat_type}</span></div>
+            <span className="badge">{b.is_ac ? "AC" : "Non-AC"}</span><span className="badge">{b.bus_seat_type}</span>
+            {otherAmenities(b.amenities).length > 0 && <p className="amenities">{otherAmenities(b.amenities).join(" · ")}</p>}
+          </div>
           <div className="bus-schedule">
             <div className="bus-timeline">
               <span><b>{b.schedule.departure_time}</b> {b.from_city_name}</span>

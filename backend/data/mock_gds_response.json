@@ -10,10 +10,10 @@
       "to_city_name": "Mumbai",
       "route_name": "Bangalore To Mumbai",
       "bus_type_name": "2+1 NON AC Seater",
-      "bus_seat_type": "Sleeper",
+      "bus_seat_type": "Seater",
       "amenities": [
         "Reading Light",
-        "AC"
+        "Non AC"
       ],
       "schedule": {
         "departure_time": "4:00 PM",
