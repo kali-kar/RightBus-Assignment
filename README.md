@@ -48,7 +48,7 @@ The search endpoint requires `source`, `destination`, and `journey_date` in `YYY
 
 The mock GDS is a local JSON file containing sample supplier data. Its endpoint returns that payload; the RightBus search service then applies the requested route and date to the structured trip fields. Route matching trims whitespace and ignores letter case when comparing `from_city_name` and `to_city_name`. The service matches `schedule.departure_date` exactly and excludes unavailable trips and trips with no seats. `route_name` is display data and is not used for matching.
 
-For local and Docker runs, the backend calls `/mock-gds/search` over HTTP. On Vercel, the serverless function reads the bundled dataset directly, avoiding a network request back to the same deployment.
+The backend calls `/mock-gds/search` over HTTP. Locally and in Docker it uses the configured `GDS_BASE_URL` (defaulting to the local backend); in Vercel it uses the internal `GDS_SERVICE_URL` service binding to reach the mock GDS service.
 
 ## Filtering and route display
 
@@ -73,4 +73,4 @@ npm test
 
 ## Vercel deployment
 
-Import the repository into Vercel with the project root set to this folder. The root `vercel.json` builds the Vite frontend and routes API requests to the FastAPI function. The demo needs no environment variables.
+Import the repository into Vercel as a multi-service project with the project root set to this folder. `vercel.json` defines three services: `frontend` serves the Vite website, `backend` serves the FastAPI API under `/api`, and `app` serves the mock GDS internally. Vercel injects `GDS_SERVICE_URL` into `backend` as a service binding to `app`; do not set this variable manually. The root `requirements.txt` supplies Python dependencies for `app`.
