@@ -10,7 +10,7 @@ def fetch_gds(source: str, destination: str, journey_date: str) -> dict:
     """Real HTTP call: RightBus backend -> GET /mock-gds/search."""
     try:
         r = httpx.get(
-            f"{GDS_BASE_URL}/mock-gds/search",
+            f"{GDS_BASE_URL.rstrip('/')}/mock-gds/search",
             params={"source": source, "destination": destination, "journey_date": journey_date},
             timeout=GDS_TIMEOUT_SECONDS,
         )
