@@ -21,12 +21,12 @@ button:disabled { cursor: wait; opacity: .6; }
 :focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
 
 header {
-  position: relative; display: flex; justify-content: center; align-items: center; gap: 12px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
   min-height: 64px; padding: 8px 24px; background: #fff;
   border-bottom: 1px solid var(--border);
 }
 header img { display: block; width: auto; height: 48px; max-width: 60vw; }
-.demo { position: absolute; right: 24px; color: var(--muted); font-size: .85rem; }
+.demo { color: var(--muted); font-size: .85rem; }
 .hero { padding: 40px 24px; color: #fff; text-align: center; background: linear-gradient(135deg, var(--cyan), var(--navy)); }
 .hero h1 { margin: 0 0 4px; }
 .hero > p { margin: 8px 0 16px; }
@@ -101,7 +101,7 @@ footer { padding: 24px; color: var(--muted); font-size: .85rem; text-align: cent
   .stop-summary { grid-column: 1; }
   .filters > * { flex: 1 1 100%; }
   .filters select { width: 100%; }
-  .demo { right: 16px; font-size: .75rem; }
+  .demo { font-size: .75rem; }
   .modal { max-height: 94vh; padding: 20px 16px; }
   .center { padding: 24px 12px; }
 }
